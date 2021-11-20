@@ -72,14 +72,20 @@ window.addEventListener("load", () => {
         const titleTwo = document.createElement("th");
         titleTwo.innerText = "Dolžina (cm)";
 
+        const titleThree = document.createElement("th");
+        titleThree.innerText = "Dolžina skupaj (cm)";
+
         headerTr.appendChild(titleOne);
         headerTr.appendChild(titleTwo);
+        headerTr.appendChild(titleThree);
 
         tableBody.appendChild(headerTr);
         
         let total = 0;
 
         labels.forEach((el, i) => {
+            total += parseInt(el.size);
+
             const tr = document.createElement("tr");
 
             const name = document.createElement("td");
@@ -88,12 +94,14 @@ window.addEventListener("load", () => {
             const value = document.createElement("td");
             value.innerText = el.size;
 
+            const valueAll = document.createElement("td");
+            valueAll.innerText = total;
+
             tr.appendChild(name);
             tr.appendChild(value);
+            tr.appendChild(valueAll);
 
             tableBody.appendChild(tr);
-
-            total += parseInt(el.size);
         });
 
         if (labels.length > 0) {
@@ -105,9 +113,11 @@ window.addEventListener("load", () => {
 
             const finalValue = document.createElement("td");
             finalValue.innerText = total;
+            finalValue.setAttribute("colspan", 2);
 
             finalTr.appendChild(finalName);
             finalTr.appendChild(finalValue);
+            //finalTr.appendChild(document.createElement("td"));
 
             tableBody.appendChild(finalTr);
         }

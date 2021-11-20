@@ -60,6 +60,11 @@ th {
 
 table .final {
   border-top: 2px solid black;
+  text-align: right;
+}
+
+table .final td:last-child {
+  text-align: right;
 }
 
 #pen {
