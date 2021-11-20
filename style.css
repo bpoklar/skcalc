@@ -68,10 +68,19 @@ table .final td:last-child {
 }
 
 #pen {
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
   width: 50px;
   fill: green;
   cursor: pointer;
+}
+
+#reset-button {
+  width: 50px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#icons-container {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 }

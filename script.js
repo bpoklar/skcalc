@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     const canvasContainer = document.querySelector("#canvas-container");
     const pen = document.querySelector("#pen");
+    const reset = document.querySelector("#reset-button");
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext("2d");
 
@@ -182,7 +183,12 @@ window.addEventListener("load", () => {
         pen.style.fill = canDraw ? "green" : "red";
     }
 
+    function refreshBrowser() {
+        location.reload();
+    }
+
     canvas.addEventListener("click", savePoint);
     document.addEventListener("keydown", closeLines);
-    pen.addEventListener("click", toggleDrawing)
+    pen.addEventListener("click", toggleDrawing);
+    reset.addEventListener("click", refreshBrowser);
 })
