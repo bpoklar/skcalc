@@ -133,6 +133,7 @@ window.addEventListener("load", () => {
         var midY = pointAY + (pointBY - pointAY) * 0.50;
 
         const point = document.createElement("div");
+        point.setAttribute("letter", letter);
         point.innerText = letter;
 
         const newLabel = {
@@ -154,7 +155,7 @@ window.addEventListener("load", () => {
         canvasContainer.appendChild(point);
 
         point.addEventListener('click', (e) => {
-            const clickedLabel = point.innerText;
+            const clickedLabel = point.getAttribute("letter");
 
             let value = "";
             value = prompt("Vnesi dolžino v cm");
@@ -166,6 +167,7 @@ window.addEventListener("load", () => {
                 
                         if (lable.label == clickedLabel) {
                             lable.size = value;
+                            point.innerText = value;
                             updateTable();
                             break;
                         }
