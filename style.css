@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+}
+
+#canvas-container {
+  position: relative;
+  width: 100%;
+}
+
+#canvas {
+  border: 2px solid black;
+}
+
+.point {
+  content: "";
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+#table-container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 700px;
+}
+
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+th {
+  background-color: grey;
+  color: white;
+}
+
+table .final {
+  border-top: 2px solid black;
+}
