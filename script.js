@@ -55,9 +55,20 @@ window.addEventListener("load", () => {
     function closeLines(e) {
         if (e.key == "Enter" || e.key == "Escape") {
             canDraw = false;
+            pen.style.fill = "red";
         }
     }
 
+    function createHtmlElement(type, innerTextValue = "") {
+        const element = document.createElement(type);
+
+        if (innerTextValue != null && innerTextValue != "") {
+            element.innerText = innerTextValue;
+        }
+
+        return element;
+    }
+    
     function updateTable() {
         const tableBody = document.querySelector("#calc-table tbody");
         
@@ -65,16 +76,11 @@ window.addEventListener("load", () => {
         tableBody.innerHTML = "";
 
         //append table header
-        const headerTr = document.createElement("tr");
+        const headerTr = createHtmlElement("tr");
 
-        const titleOne = document.createElement("th");
-        titleOne.innerText = "Točka";
-
-        const titleTwo = document.createElement("th");
-        titleTwo.innerText = "Dolžina (cm)";
-
-        const titleThree = document.createElement("th");
-        titleThree.innerText = "Dolžina skupaj (cm)";
+        const titleOne = createHtmlElement("th", "Točka");
+        const titleTwo = createHtmlElement("th", "Dolžina (cm)");
+        const titleThree = createHtmlElement("th", "Dolžina skupaj (cm)");
 
         headerTr.appendChild(titleOne);
         headerTr.appendChild(titleTwo);
@@ -87,16 +93,11 @@ window.addEventListener("load", () => {
         labels.forEach((el, i) => {
             total += parseFloat(el.size);
 
-            const tr = document.createElement("tr");
+            const tr = createHtmlElement("tr");
 
-            const name = document.createElement("td");
-            name.innerText = el.label;
-
-            const value = document.createElement("td");
-            value.innerText = el.size;
-
-            const valueAll = document.createElement("td");
-            valueAll.innerText = total;
+            const name = createHtmlElement("td", el.label);
+            const value = createHtmlElement("td", el.size);
+            const valueAll = createHtmlElement("td", total);
 
             tr.appendChild(name);
             tr.appendChild(value);
@@ -106,23 +107,19 @@ window.addEventListener("load", () => {
         });
 
         if (labels.length > 0) {
-            const finalTr = document.createElement("tr");
+            const finalTr = createHtmlElement("tr");
             finalTr.classList.add("final");
 
-            const finalName = document.createElement("td");
-            finalName.innerText = "Skupaj";
+            const finalName = createHtmlElement("td", "Skupaj");
 
-            const finalValue = document.createElement("td");
-            finalValue.innerText = total;
+            const finalValue = createHtmlElement("td", total);
             finalValue.setAttribute("colspan", 2);
 
             finalTr.appendChild(finalName);
             finalTr.appendChild(finalValue);
-            //finalTr.appendChild(document.createElement("td"));
 
             tableBody.appendChild(finalTr);
         }
-
     }
 
     function addLineLable(pointA, pointB) {
