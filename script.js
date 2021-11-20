@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
     const canvasContainer = document.querySelector("#canvas-container");
+    const pen = document.querySelector("#pen");
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext("2d");
 
@@ -166,6 +167,12 @@ window.addEventListener("load", () => {
         });
     }
 
+    function toggleDrawing() {
+        canDraw = !canDraw;
+        pen.style.fill = canDraw ? "green" : "red";
+    }
+
     canvas.addEventListener("click", savePoint);
     document.addEventListener("keydown", closeLines);
+    pen.addEventListener("click", toggleDrawing)
 })
