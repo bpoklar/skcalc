@@ -151,15 +151,17 @@ window.addEventListener("load", () => {
             value = prompt("Vnesi dolžino v cm");
 
             if (value != null && value != "") {
-                for (var i = 0; i < labels.length; i++) {
-                    var lable = labels[i];
+                if (!isNaN(value)) {
+                    for (var i = 0; i < labels.length; i++) {
+                        var lable = labels[i];
                 
-                    if (lable.label == clickedLabel) {
-                        lable.size = value;
-                        updateTable();
-                        break;
-                    }
-                };
+                        if (lable.label == clickedLabel) {
+                            lable.size = value;
+                            updateTable();
+                            break;
+                        }
+                    };
+                }
             }
         });
     }
