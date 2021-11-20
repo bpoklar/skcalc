@@ -85,7 +85,7 @@ window.addEventListener("load", () => {
         let total = 0;
 
         labels.forEach((el, i) => {
-            total += parseInt(el.size);
+            total += parseFloat(el.size);
 
             const tr = document.createElement("tr");
 
