@@ -70,17 +70,29 @@ table .final td:last-child {
 #pen {
   width: 50px;
   fill: green;
-  cursor: pointer;
 }
 
 #reset-button {
-  width: 50px;
   margin-left: 10px;
   cursor: pointer;
 }
 
+#print_btn {
+  margin-right: auto;
+}
+
 #icons-container {
+  padding: 20px;
+  width: 100%;
   position: absolute;
-  bottom: 20px;
-  right: 10px;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.custom-icon {
+  display: block;
+  width: 50px;
+  cursor: pointer;
 }
