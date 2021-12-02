@@ -96,3 +96,9 @@ table .final td:last-child {
   width: 50px;
   cursor: pointer;
 }
+
+@media print {
+  .custom-icon {
+    visibility: hidden;
+  }
+}
